@@ -1,3 +1,176 @@
+# 样式基础
+
+默认是什么,是否可继承
+
+样式表->规则->选择器+声明块->css属性+css属性组成的键值对
+
+```css
+style.css /*样式表*/ 
+div ul li .item{}  /* 规则 */ 
+/* div ul li .item  选择器*/
+div ul {
+  /*声明块*/
+  /* css属性 键值对 */
+  font-size:12px;
+}
+```
+
+## 选择器
+
+### 基本选择器
+
+- [元素选择器](https://developer.mozilla.org/zh-CN/docs/CSS/Type_selectors) `elementname(元素名称)`
+- [类选择器](https://developer.mozilla.org/zh-CN/docs/CSS/Class_selectors) `.classname(类名)`
+- [ID 选择器](https://developer.mozilla.org/zh-CN/docs/CSS/ID_selectors) `#idname(ID 名)`
+- [通配选择器](https://developer.mozilla.org/zh-CN/docs/CSS/Universal_selectors) `*`, `ns|*`, `*|*`, `|*`
+- [属性选择器](https://developer.mozilla.org/zh-CN/docs/CSS/Attribute_selectors) `[属性=值]`
+
+> 笔者不推荐使用通配选择器,因为它是[性能最低的一个CSS选择器](http://www.stevesouders.com/blog/2009/06/18/simplifying-css-selectors/).
+
+### 组合选择器
+
+- [相邻兄弟选择器](https://developer.mozilla.org/zh-CN/docs/CSS/Adjacent_sibling_selectors) `A + B`
+- [普通兄弟选择器](https://developer.mozilla.org/zh-CN/docs/CSS/General_sibling_selectors) `A ~ B`
+- [子选择器](https://developer.mozilla.org/zh-CN/docs/CSS/Child_selectors) `A > B`
+- [后代选择器](https://developer.mozilla.org/zh-CN/docs/CSS/Descendant_selectors) `A B`
+
+### 伪类
+
+**链接伪类**:
+
+- :link  // 仅链接可用
+
+- :visited // 访问后的属性
+
+> 这个样式可能会被后声明的其他链接相关的伪类覆盖，这些伪类包括 ([`:link`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:link), [`:hover`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:hover),和[`:active`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:active))。要适当地设置链接样式，请将`:visited` 规则放在`:link` 规则之后，但在`:hover` 和`:active` 规则之前，参照 LVHA *顺序*:`:link` — `:visited` — `:hover` — `:active`。
+>
+> 出于隐私原因，浏览器严格限制您可以让此伪类应用的样式，以及使用它们的方式：
+>
+> - 允许使用的 CSS 属性为[`color`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/color), [`background-color`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-color), [`border-color`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-color), [`border-bottom-color`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-bottom-color), [`border-left-color`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-left-color), [`border-right-color`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-right-color), [`border-top-color`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-top-color), [`column-rule-color`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/column-rule-color), 和[`outline-color`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/outline-color)。
+> - [其他参考MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:visited)
+
+**动态伪类:**
+
+- :hover // 鼠标滑过属性
+
+- :active // 鼠标点击下去的属性
+
+**表单伪类**
+
+- :enable // 可编辑
+
+- :disabled //不可编辑
+
+- :checked // 被选中
+
+- :focus //鼠标焦点
+
+**结构性伪类**
+
+- :nth-child(index)  
+
+  - 这个 [CSS 伪类](https://developer.mozilla.org/en-US/docs/CSS/Pseudo-classes)首先找到**所有当前元素**的兄弟元素，然后按照位置先后顺序从1开始排序，选择的结果为CSS伪类:nth-child括号中表达式（an+b）匹配到的元素集合（n=0，1，2，3...）
+
+  - 比如p:nth-child(2)也就是说,它不在乎你第2个元素是什么,我就要找到第2个元素,看是不是p元素,如果不是那就拉倒,如果是,加上样式.
+
+  - 部分常用的示例
+
+    ```
+    tr:nth-child(2n+1)
+    ```
+
+    表示HTML表格中的奇数行。
+
+    ```
+    tr:nth-child(odd)
+    ```
+
+    表示HTML表格中的奇数行。
+
+    ```
+    tr:nth-child(2n)
+    ```
+
+    表示HTML表格中的偶数行。
+
+    ```
+    tr:nth-child(even)
+    ```
+
+    表示HTML表格中的偶数行。
+
+    ```
+    span:nth-child(0n+1)
+    ```
+
+    表示子元素中第一个且为span的元素，与 [`:first-child`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:first-child) 选择器作用相同。
+
+    ```
+    span:nth-child(1)
+    ```
+
+    表示父元素中子元素为第一的并且名字为span的标签被选中
+
+    ```
+    span:nth-child(-n+3)
+    ```
+
+    匹配前三个子元素中的span元素。
+
+  - first-child
+
+  - last-child
+
+  - nth-last-child //倒着数
+
+  - only-child  //匹配没有任何兄弟元素的元素.等效的选择器还可以写成 `:first-child:last-child`或者`:nth-child(1):nth-last-child(1)`,当然,前者的权重会低一点.
+
+- :nth-of-type(index)
+
+  - 这个 [CSS 伪类](https://developer.mozilla.org/en-US/docs/CSS/Pseudo-classes)是针对具有一组兄弟节点的标签, 用 n 来筛选出在一组兄弟节点的位置。
+  - 比如p:nth-of-type(3)也就是说,他首先找到子类的所有p元素,然后找到p的第3个元素加样式
+  - first-of-type
+  - last-of-type
+  - nth-last-of-type
+  - only-of-type // 即使子元素有很多个,但是只要满足的子元素只有一个就会被选中
+
+- :not
+
+  - 用来匹配不符合一组选择器的元素。由于它的作用是防止特定的元素被选中，它也被称为*反选伪类*（*negation pseudo-class*）  
+  - 比如 :not(:last-child) 就是除了最后一个元素,其他元素都加上样式
+
+- :empty // 匹配内容是空的
+
+> 注意
+>
+> - index是从1开始数的
+> - nth-of-type 和 nth-child的选择需要区分
+
+### 伪元素
+
+- ::after
+
+- ::before
+
+  - ```
+    /* Add an arrow after links */
+    a::after {
+      content: "→";
+    }
+    ```
+
+- :root //根元素
+
+### 基本选择器扩展
+
+```css
+#wrap > li  /* 子类选择器,只找子类 */
+#wrap > #first + .inner  /*相邻兄弟选择器 只会找#first相邻的.inner*/
+#wrap #first ~ .inner /*通用兄弟选择器,匹配所有的.inner*/
+```
+
+
+
 # 圣杯布局与双飞翼布局
 
 ## 圣杯布局
