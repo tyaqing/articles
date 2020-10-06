@@ -161,15 +161,17 @@ div ul {
 
 - :root //根元素
 
-### 基本选择器扩展
+### 选择器的优先级
 
-```css
-#wrap > li  /* 子类选择器,只找子类 */
-#wrap > #first + .inner  /*相邻兄弟选择器 只会找#first相邻的.inner*/
-#wrap #first ~ .inner /*通用兄弟选择器,匹配所有的.inner*/
-```
+下面列表中，选择器类型的优先级是递增的：
 
+1. [类型选择器](https://developer.mozilla.org/en-US/docs/Web/CSS/Type_selectors)（例如，`h1`）和伪元素（例如，`::before`）
+2. [类选择器](https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors) (例如，`.example`)，属性选择器（例如，`[type="radio"]`）和伪类（例如，`:hover`）
+3. [ID 选择器](https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors)（例如，`#example`）。
 
+>  **通配选择符**（universal selector）（[`*`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Universal_selectors)）**关系选择符**（combinators）（[`+`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Adjacent_sibling_combinator), [`>`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Child_combinator), [`~`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/General_sibling_combinator), ['` `'](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator), [`||`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Column_combinator)）和 **否定伪类**（negation pseudo-class）（[`:not()`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:not)）对优先级没有影响。（但是，在 `:not()` 内部声明的选择器会影响优先级）。
+
+![img](https://pic.4sus2.com/uPic/1601870502410pEjbs7.png)
 
 # 圣杯布局与双飞翼布局
 
@@ -314,15 +316,57 @@ Transform:translate3d(-50%,-50%,0)
 
 
 
-## Grid布局
+# Grid布局
 
-## BFC
+# BFC
 
-## 选择器
+BFC是指**一个独立的渲染区域，只有Block-level Box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干**.
 
-## Flex
+它的作用是在**一块独立的区域，让处于BFC内部的元素与外部的元素互相隔离**
 
-## 1px物理像素实现
+下列方式会创建**块格式化上下文**：
+
+- 根元素（`<html>）`
+- 浮动元素（元素的 [`float`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/float) 不是 `none`）
+- 绝对定位元素（元素的 [`position`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position) 为 `absolute` 或 `fixed`）
+- [`overflow`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/overflow) 值不为 `visible` 的块元素
+
+## 作用
+
+- #### 防止margin发生重叠
+
+- #### 两栏布局，防止文字环绕等
+
+- #### 防止元素塌陷
+
+# Flex
+
+Flexible Box 模型，通常被称为 flexbox，是一种一维的布局模型。它给 flexbox 的子元素之间提供了强大的空间分布和对齐能力。本文给出了 flexbox 的主要特性，更多的细节将在别的文档中探索。
+
+我们说 flexbox 是一种一维的布局，是因为一个 flexbox 一次只能处理一个维度上的元素布局，一行或者一列。作为对比的是另外一个二维布局 [CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)，可以同时处理行和列上的布局。
+
+## 容器属性
+
+- flex-direction // 横轴的排列方式
+- flex-wrap // 是否换行
+- justify-content // 主轴上的对齐方式
+- align-items // 交叉轴的对齐方式
+- align-content // 多轴对齐方式,如只有一根轴不起作用
+
+## 元素属性
+
+- flex-grow // 元素放大
+- flex-shrink // 元素缩小
+- flex-basis // 元素占空余空间的大小
+- flex: flex grow | flex-shrink |  flex-basis
+
+[Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+
+[Flex 布局教程：实例篇](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
+
+
+
+# 1px物理像素实现
 
 像素比 = 物理像素/CSS像素
 
@@ -354,7 +398,7 @@ Transform:translate3d(-50%,-50%,0)
 }
 ```
 
-## px rem em vh vw之间的区别
+# px rem em vh vw之间的区别
 
 **一、px**
 
@@ -409,7 +453,7 @@ vmin和vmax是相对于视口的高度和宽度两者之间的最小值或最大
 
 
 
-## 响应式与自适应
+# 响应式与自适应
 
 自适应（Adaptive）
    程序代码**主动地**去根据不同的屏幕大小，去实现不同的样式代码，**需要实现不同的样式代码**。
