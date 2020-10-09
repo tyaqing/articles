@@ -492,17 +492,21 @@ promise 的每个操作返回的都是 promise 对象，可支持链式调用。
 ```js
 function promiseAll(promiseArray) {
     return new Promise(function (resolve, reject) {
+      	// 类型判断
         if (!Array.isArray(promiseArray)) {
             throw new TypeError(`argument must be a array`)
         }
-
+      	// 已经处理的计数器
         let resolvedCounter = 0;
+      	// 总处理条数
         let promiseNum = promiseArray.length;
+      	// 任务结果
         let resolvedResult = [];
 
         for (let i = 0; i < promiseNum; i++) {
             Promise.resolve(promiseArray[i]).then(
                 value => {
+                  	
                     resolvedCounter++;
                     resolvedResult[i] = value;
                     if (resolvedCounter == promiseNum) {
@@ -510,6 +514,7 @@ function promiseAll(promiseArray) {
                     }
                 },
                 reason => {
+                  	// 一旦遇到错误,就停止
                     return reject(error)
                 }
             )
@@ -820,7 +825,7 @@ localStorage对象在修订过的HTML5规范中作为持久保存客户端数据
 
 localStorage的基本操作很简单，示例如下：
 
-```
+```js
 // 使用方法存储数据
 localStorage.setItem("name", "Srtian")
 // 使用属性存储数据
@@ -1006,20 +1011,18 @@ getDataByKey: function(db, storename, key) {
 
 删除数据：
 
-```
+```js
 deleteDate: function(db, storename, key) {
 	const store = store = db.transaction(storename, 'readwrite').objectStore(storename)
 	store.delete(key)
 	console.log('已删除存储空间' + storename + '中的' + key + '纪录')
 }
-复制代码
 ```
 
 关闭数据库：
 
-```
+```js
 db.close
-复制代码
 ```
 
 ### IndexedDB的优点（相较于前面的存储方案）
