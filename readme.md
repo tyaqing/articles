@@ -1,6 +1,6 @@
 # Yakir的文档库
 
-## [ffmpeg](./ffmpeg)
+## [ffmpeg](/ffmpeg.md)
 
 
 
