@@ -52,6 +52,7 @@ ffplay audio.wav
 参考文章:
 
 - [ffmpeg Documentation](https://ffmpeg.org/documentation.html)
+- [【FFMPEG】FFMPEG程序捕获Mac设备流媒体](https://blog.csdn.net/arctan90/article/details/50828771)
 
 ## wav简介
 
