@@ -1,16 +1,70 @@
 # ffmpeg的安装
 
-使用`homebrew`安装,简单高效.
+**cd到存放目录并下载**
 
-```bash
-homebrew install ffmpeg
+```
+cd /usr/local/src  
+sudo git clone https://git.ffmpeg.org/ffmpeg.git
 ```
 
-> 其中包含了ffplay,无需再次安装
+这里下载太慢了可以使用国内镜像 https://gitee.com/mirrors/ffmpeg/
 
-homebrew如果下载慢(或者是换了源也很慢),请参考:
+**进入ffmpeg-4.3目录**
 
-[Homebrew国内如何自动安装(国内地址)](https://zhuanlan.zhihu.com/p/111014448)
+```
+cd /usr/local/src/ffmpeg-4.3
+./configure --prefix=/usr/local/ffmpeg  --enable-gpl  --enable-nonfree  --enable-libfdk-aac  --enable-libx264  --enable-libx265 --enable-filter=delogo --enable-debug --disable-optimizations --enable-libspeex --enable-videotoolbox --enable-shared --enable-pthreads --enable-version3 --enable-hardcoded-tables --cc=clang --host-cflags= --host-ldflags=
+```
+
+**如果报错`nasm/yasm not found or too old. Use --disable-x86asm for a crippled build`的话，先执行下面命令安装yasm然后再执行配置configure的命令。**
+
+```
+brew install yasm
+```
+
+**如果报错`ERROR: libfdk_aac not found`的话，先执行下面命令安装fdk-aac然后再执行配置configure的命令。**
+
+```
+brew install fdk-aac
+```
+
+**如果报错：`ERROR: videotoolbox requested, but not all dependencies are satisfied: corefoundation coremedia corevideo`** 安装*nv-codec-headers*
+
+```
+git clone https://github.com/FFmpeg/nv-codec-headers.git
+sudo make
+sudo make install
+```
+
+执行下面命令来安装
+
+```
+make    // 直接make会报错
+sudo make install   //我是使用这个安装成功的
+```
+
+安装完成可使用全路径调用ffmpeg
+
+```
+/usr/local/ffmpeg/bin/ffmpeg -version // 查看版本信息
+```
+
+设置环境变量
+
+```
+// 编辑添加环境变量
+vim ~/.bash_profile
+// 在低部添加如下代码
+export PATH=$PATH:/usr/local/ffmpeg/bin
+// 保存后立即生效
+source ~/.bash_profile
+```
+
+
+
+参考文章
+
+- [Mac系统上安装FFmpeg](https://fujuhao.com/mac-install-ffmpeg/)
 
 # 采集音频
 
@@ -143,6 +197,28 @@ ffmpeg -i xxx.mp4  输入
 
 
 
+## rtmp推流服务
+
+推流端:
+
+```bash
+ffmpeg -re -i trump.mp4 -c copy -f flv  rtmp://127.0.0.1/hls/room
+```
+
+接收端
+
+```bash
+ffplay rtmp://62.234.153.225/hls/room
+```
+
+参考文章:
+
+-[通过宝塔面板编译Nginx-rtmp-module模块搭建hls推流](https://www.bt.cn/bbs/forum.php?mod=viewthread&tid=51618&highlight=rtmp)
+
+## SRS(Simple Rtmp Server)
+
+在同一台机器可以启动多个进程同时提供服务
+
 # 遇到问题
 
 
@@ -167,3 +243,4 @@ brew install automake
 
 https://juejin.im/post/6844903986403737607
 
+请重新按照最上面的方法安装一次

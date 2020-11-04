@@ -76,3 +76,6 @@ git stash drop stash@{index}
 #删除全部暂存
 git stash clear
 ```
+
+## GIt的便捷操作
+
