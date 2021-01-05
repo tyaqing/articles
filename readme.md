@@ -46,19 +46,117 @@ eTLD+1指的是相同顶级域名下紧接其后的域名,比如video.qq.com,mus
 
 
 
-参考:
+**[参考]**
 
 - [同站和同源你理解清楚了么](https://cloud.tencent.com/developer/article/1651506)
 - [浏览器系列之 Cookie 和 SameSite 属性 · Issue \#157 · mqyqingfeng/Blog](https://github.com/mqyqingfeng/Blog/issues/157)
 
-
-
 ## 原型与原型链
 
-<iframe src="https://codesandbox.io/embed/vibrant-shadow-mp5nk?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="vibrant-shadow-mp5nk"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+参考
+
+- [JavaScript深入之从原型到原型链 · Issue \#2 · mqyqingfeng/Blog](https://github.com/mqyqingfeng/Blog/issues/2)
+
+
+
+## js基本脚手架
+
+### pakage.json配置
+
+```js
+{
+  "name": "js-learn",
+  "version": "1.0.0",
+  "description": "no description",
+  "main": "index.js",
+  "repository": "git@codeup.aliyun.com:5fc306172f8cc15c287b6197/default/js-learn.git",
+  "author": "tyaqing <626019610@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack serve",
+    "lint": "eslint src/*.js --fix",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.0",
+    "html-webpack-plugin": "^4.5.1",
+    "prettier": "^2.2.1",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.1"
+  },
+  "dependencies": {}
+}
+
+```
+
+### eslint配置
+
+```js
+module.exports = {
+  env: {
+    es6: true,
+    browser: true
+  },
+  extends: ['airbnb-base', 'prettier'],
+  parserOptions: {
+    ecmaVersion: 10,
+    sourceType: 'module'
+  },
+  rules: {
+    'no-console': 0,
+    'no-useless-escape': 0,
+    'no-multiple-empty-lines': [0],
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        semi: false,
+        trailingComma: 'none',
+        bracketSpacing: true,
+        jsxBracketSameLine: true,
+        endOfLine: 'auto'
+      }
+    ]
+  },
+  plugins: ['prettier']
+}
+```
+
+### webpack配置
+
+```js
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
+module.exports = {
+  entry: {
+    app: './src/index.js'
+  },
+  mode: 'development',
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  devServer: {
+    contentBase: './dist'
+  },
+  devtool: 'inline-source-map',
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Development'
+    })
+  ]
+}
+
+```
+
+
 
