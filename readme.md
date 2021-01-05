@@ -48,5 +48,17 @@ eTLD+1指的是相同顶级域名下紧接其后的域名,比如video.qq.com,mus
 
 参考:
 
-- [同站 和 同源 你理解清楚了么?](https://cloud.tencent.com/developer/article/1651506)
+- [同站和同源你理解清楚了么](https://cloud.tencent.com/developer/article/1651506)
 - [浏览器系列之 Cookie 和 SameSite 属性 · Issue \#157 · mqyqingfeng/Blog](https://github.com/mqyqingfeng/Blog/issues/157)
+
+
+
+## 原型与原型链
+
+<iframe src="https://codesandbox.io/embed/vibrant-shadow-mp5nk?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="vibrant-shadow-mp5nk"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
