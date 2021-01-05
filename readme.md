@@ -48,5 +48,5 @@ eTLD+1指的是相同顶级域名下紧接其后的域名,比如video.qq.com,mus
 
 参考:
 
-- [同站 和 同源 你理解清楚了么？ \- 云\+社区 \- 腾讯云](https://cloud.tencent.com/developer/article/1651506)
+- [同站 和 同源 你理解清楚了么?](https://cloud.tencent.com/developer/article/1651506)
 - [浏览器系列之 Cookie 和 SameSite 属性 · Issue \#157 · mqyqingfeng/Blog](https://github.com/mqyqingfeng/Blog/issues/157)
