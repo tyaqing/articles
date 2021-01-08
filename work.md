@@ -14,9 +14,9 @@
 ### 待办事项
 
 - [ ] 苹果底部安全区域按设计重新计算
-- [ ] Event改写
-- [ ] 改写 Network.request
-- [x] popover bug修复
+- [x] 优惠券信息采集组件抽出
+- [ ] 改写 Network.request  ajaxRequest
+- [x] popover bug修复s
 
 - [ ] 组件命名大驼峰
 
