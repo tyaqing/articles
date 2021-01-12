@@ -1,3 +1,45 @@
+# 01-12
+
+- [ ] CLS(Cumulative Layout Shifts)分析
+- [ ] 更多栏图标permission的问题
+- [x] wx_qr_url放入baseinfo
+- [x] showRemoveMyCourseButton      solomonguo
+- [x] 语音播放状态
+- [x] badge中的数字不居中
+
+- [ ] 讨论区问题的问字没居中
+- [ ] 录音中
+
+# 01-11
+
+- [x] 体验报告的问题
+- [x] 述职报告发送
+
+- [ ] badge中的数字不居中
+
+- [ ] 讨论区问题的问字没居中
+
+- [x] 录音被讨论区遮挡
+- [ ] CLS(Cumulative Layout Shifts)分析
+- [ ] 更多栏图标permission的问题
+- [ ] wx_qr_url放入baseinfo
+- [ ] showRemoveMyCourseButton      solomonguo
+- [ ] 语音播放状态
+
+
+
+文本换行
+
+```scss
+overflow: hidden; //超出的文本隐藏
+text-overflow: ellipsis; //溢出用省略号显示
+white-space: nowrap; //溢出不换行
+```
+
+
+
+---
+
 # 01-08
 
 ## 优化项
@@ -20,7 +62,7 @@
 
 - [ ] 组件命名大驼峰
 
-
+**广州花都区壹心培训中心有限公司**
 
 直播日志卡上报
 
@@ -48,10 +90,12 @@ error_report_utils
 
 # 01-04
 
-- [ ] 合并讨论区问题区
+- [ ] 合并讨论区问题
 - [x] 使用新的讨论区样式
 - [x] 讨论区到顶部,到底部按钮
 - [x] [上次看到这里]样式修改
+
+---
 
 # 12-31
 
@@ -167,10 +211,6 @@ html,body{
 
 https://i.y.qq.com/v8/playsong.html?songid=106345364&source=yqq#wechat_redirect
 
-
-
-
-
 这里
 
 https://v.qq.com/x/page/i3074ov2fk3.html
@@ -193,10 +233,6 @@ https_proxy=127.0.0.1:7890 brew cask reinstall font-hack-nerd-font
 #EXT-X-PLAYLIST-TYPE:VOD/Live   //VOD表示当前视频流不是一个直播流，而是点播流(也就是视频的全部ts文件已经生成)
 #EXTINF:                        //extra info，分片TS的信息，如时长，带宽等
 ```
-
-
-
-
 
 # 1130
 
@@ -268,8 +304,6 @@ appnlwpamfq1645
 [工单]
 
 - 弹幕bug收敛
-
-
 
 # 1118
 
