@@ -1,3 +1,19 @@
+# 01-13
+
+- [ ] 更多栏图标permission的问题
+- [ ] 讨论区问题的问字没居中
+- [x] 语音播放中状态 audioIsPlay
+- [x] 语音遮罩无法关闭问题
+- [x] 骨架屏抽到外面
+- [x] 骨架屏动效
+- [x] 骨架屏在首屏消息加载后消失
+- [x] 首页更多按钮
+- [ ] CLS(Cumulative Layout Shifts)分析
+- [x] InteractionSkeleton 重复加载问题
+- [ ] 语音直播底栏点击失效问题
+- [x] 回到顶部回到底部同时只存在一个
+- [ ] 点击弹出清晰度切换弹窗
+
 # 01-12
 
 - [ ] CLS(Cumulative Layout Shifts)分析
