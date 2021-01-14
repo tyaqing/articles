@@ -1,18 +1,54 @@
+# 01-15
+
+- [ ] 弹幕组件和购买提示组件分开,避免关闭弹幕后不显示
+- [ ] 音视频上传 按下按钮背景颜色
+- [ ] 去掉消息[删除]按钮
+- [ ] 修改this.$confirm和this.$alert
+- [ ] 更多栏图标permission的问题
+- [ ] CLS(Cumulative Layout Shifts)分析
+
+# 01-14
+
+- [ ] ~~更多栏图标permission的问题~~
+- [ ] ~~CLS(Cumulative Layout Shifts)分析~~
+- [x] 讨论区问题的问字没居中
+- [ ] 
+- [x] 点击弹出清晰度切换弹窗
+- [x] 语音直播底栏点击失效问题
+- [x] 讨论区骨架屏改版
+- [x] 录音层在取消录音后会消失
+- [x] 苹果安全区需要重新修改
+- [x] 更多按钮歪了
+
+
+
+```css
+// 苹果安全底部
+.ios-safe-bottom{
+  height: calc(constant(safe-area-inset-bottom) - 0.32rem);
+  height: calc(env(safe-area-inset-bottom) - 0.32rem );
+  width: 100%;
+  background-color: #fff;
+}
+```
+
+
+
 # 01-13
 
-- [ ] 更多栏图标permission的问题
-- [ ] 讨论区问题的问字没居中
+- [ ] ~~更多栏图标permission的问题~~
+- [ ] ~~讨论区问题的问字没居中~~
 - [x] 语音播放中状态 audioIsPlay
 - [x] 语音遮罩无法关闭问题
 - [x] 骨架屏抽到外面
 - [x] 骨架屏动效
 - [x] 骨架屏在首屏消息加载后消失
 - [x] 首页更多按钮
-- [ ] CLS(Cumulative Layout Shifts)分析
+- [ ] ~~CLS(Cumulative Layout Shifts)分析~~
 - [x] InteractionSkeleton 重复加载问题
-- [ ] 语音直播底栏点击失效问题
+- [ ] ~~语音直播底栏点击失效问题~~
 - [x] 回到顶部回到底部同时只存在一个
-- [ ] 点击弹出清晰度切换弹窗
+- [ ] ~~点击弹出清晰度切换弹窗~~
 
 # 01-12
 
