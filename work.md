@@ -1,11 +1,49 @@
-# 01-15
+# 01-19
 
-- [ ] 弹幕组件和购买提示组件分开,避免关闭弹幕后不显示
-- [ ] 音视频上传 按下按钮背景颜色
-- [ ] 去掉消息[删除]按钮
-- [ ] 修改this.$confirm和this.$alert
+- [ ] 自测
+
+# 01-18
+
+- [ ] 文件库上传功能
+
+- [x] 弹幕中出现了语音消息
+
+- [x] 更多栏图标permission的问题
+- [ ] CLS(Cumulative Layout Shifts)分析
+- [x] 删除Network
+- [x] 音视频上传sheet底部按钮错位
+
+# 01-16
+
 - [ ] 更多栏图标permission的问题
 - [ ] CLS(Cumulative Layout Shifts)分析
+- [x] 删除pressGreyBg  PressGreenBg
+- [ ] 文件库上传功能
+- [x] 在直播中弹幕不显示历史消息
+- [ ] 弹幕中出现了语音消息
+
+# 01-15
+
+- [x] 弹幕组件和购买提示组件分开,避免关闭弹幕后不显示
+- [x] 音视频上传 按下按钮背景颜色
+- [x] 去掉消息[删除]按钮
+- [x] 修改this.$confirm和this.$alert
+- [ ] 更多栏图标permission的问题
+- [ ] CLS(Cumulative Layout Shifts)分析
+- [x] 录音按钮反应慢的问题
+- [x] 体验报告问题
+- [ ] 删除pressGreyBg  PressGreenBg
+
+```css
+// 使用sticky相对于父窗定位
+ position: sticky;
+// right: 0.32rem;
+bottom: 1.78rem;
+float: right;
+margin-right: 0.32rem;
+```
+
+
 
 # 01-14
 
